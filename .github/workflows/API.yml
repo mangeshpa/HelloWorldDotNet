@@ -22,4 +22,4 @@ jobs:
       with:
       # Artifact name
         name: artifact
-        path: ./outputFinal3.json
+        path: ./outputFinal2.json
