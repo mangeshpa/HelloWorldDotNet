@@ -16,10 +16,13 @@ jobs:
        -H "Accept: application/vnd.github.v3+json" \
        https://api.github.com/repos/mangeshpa/HelloWorldDotNet/stats/participation | jq '.["all"] | add')" 
        echo "$TAG_NAME"
+       
+       sed 's/}/},/g' ./output.json >> "./outputFinal.json"
+       sed '$ s/.$//' ./outputFinal.json >> "./outputFinal2.json"
                      
     - name: Upload a Test Artifact
       uses: actions/upload-artifact@v2.2.4
       with:
       # Artifact name
         name: artifact
-        path: ./output.json
+        path: ./outputFinal2.json
