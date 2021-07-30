@@ -16,6 +16,8 @@ jobs:
        echo "TAG_NAME=$(curl \
        -H "Accept: application/vnd.github.v3+json" \
        https://api.github.com/repos/mangeshpa/HelloWorldDotNet | jq -r '{Reponame: .name, Branch: .default_branch}')"
+       sed 's/}/},/g' ./output.json >> "./outputFinal.json"
+       sed '$ s/.$//' ./outputFinal.json >> "./outputFinal2.json"
        
        #curl -X GET https://api.github.com/repos/mangeshpa/HelloWorldDotNet | jq -r '{Reponame: .name, Branch: .default_branch}'  >> "./output.json"
        #(curl https://api.github.com/repos/mangeshpa/Hell(oWorldDotNet/commits | jq '.[] | {Commit_id: .sha, Commit_Date: .commit.author.date, Commit_Author: .commit.author.name}' |  curl -X GET https://api.github.com/repos/mangeshpa/HelloWorldDotNet | jq -r '{Reponame: .name, Branch: .default_branch}')
@@ -25,4 +27,4 @@ jobs:
       with:
       # Artifact name
         name: artifact
-        path: ./output.json
+        path: ./outputFinal2.json
