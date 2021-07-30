@@ -10,11 +10,11 @@ jobs:
     steps:
     - name: API FOR PULL REQUEST
       run: |
-       curl https://api.github.com/repos/mangeshpa/JestReport/pulls?state=open | jq '.[] | {CreatedBy: .user.login, SourceBranch: .head.ref, DestinationBranch: .base.ref, Pull_Request_Number: .number, Repository: .url, Creation_Date: .created_at, Pull_Request_Status: .state, Reviewers: .requested_reviewers, Approvers: .assignees.login}' >> "./output.json"
-       sed  -i '1i [' ./output.json
-       sed 's/}/},/g' ./output.json >> "./outputFinal.json"
-       sed '$ s/.$//' ./outputFinal.json >> "./outputFinal2.json"
-       sed -i '$ a\'"]" ./outputFinal2.json
+       curl https://api.github.com/repos/mangeshpa/JestReport/pulls?state=open | jq '.[] | {CreatedBy: .user.login, SourceBranch: .head.ref, DestinationBranch: .base.ref, Pull_Request_Number: .number, Repository: .url, Creation_Date: .created_at, Pull_Request_Status: .state, Reviewers: .requested_reviewers, Approvers: .assignees.login[0]}' #>> "./output.json"
+       #sed  -i '1i [' ./output.json
+       #sed 's/}/},/g' ./output.json >> "./outputFinal.json"
+       #sed '$ s/.$//' ./outputFinal.json >> "./outputFinal2.json"
+       #sed -i '$ a\'"]" ./outputFinal2.json
                      
     - name: Upload a Test Artifact
       uses: actions/upload-artifact@v2.2.4
