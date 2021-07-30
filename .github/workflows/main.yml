@@ -17,7 +17,7 @@ jobs:
        
        curl \
        -H "Accept: application/vnd.github.v3+json" \
-       https://api.github.com/repos/mangeshpa/HelloWorldDotNet | jq -r '{Reponame: .name, Branch: .default_branch} | add' >> "./outputFinal3.json" >> "./output.json"
+       https://api.github.com/repos/mangeshpa/HelloWorldDotNet | jq -r '{Reponame: .name, Branch: .default_branch}' #>> "./outputFinal3.json" >> "./output.json"
        sed 's/}/},/g' ./output.json >> "./outputFinal.json"
        sed '$ s/.$//' ./outputFinal.json >> "./outputFinal2.json"
        
