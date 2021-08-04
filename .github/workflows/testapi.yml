@@ -10,7 +10,13 @@ jobs:
     steps:
     - name: API FOR PULL REQUEST
       run: |
-       curl https://api.github.com/repos/mangeshpa/JestReport/pulls | jq '.[] | {CreatedBy: .user.login, SourceBranch: .head.ref, DestinationBranch: .base.ref, Pull_Request_Number: .number, Repository: .url, Creation_Date: .created_at, Pull_Request_Status: .state, Reviewers: .requested_reviewers[].login, Approvers: .assignee.login}' >> "./output.json"
+       #curl https://api.github.com/repos/mangeshpa/JestReport/pulls | jq '.[] | {CreatedBy: .user.login, SourceBranch: .head.ref, DestinationBranch: .base.ref, Pull_Request_Number: .number, Repository: .url, Creation_Date: .created_at, Pull_Request_Status: .state, Reviewers: .requested_reviewers[].login, Approvers: .assignee.login}' >> "./output.json"
+       #sed  -i '1i [' ./output.json
+       #sed 's/}/},/g' ./output.json >> "./outputFinal.json"
+       #sed '$ s/.$//' ./outputFinal.json >> "./outputFinal2.json"
+       #sed -i '$ a\'"]" ./outputFinal2.json
+
+       curl https://api.github.com/repos/pulipativedanth/sample-java-project/actions/runs | jq '.[] | {BuildID: .workflow_runs[].id}' >> "./output.json"
        sed  -i '1i [' ./output.json
        sed 's/}/},/g' ./output.json >> "./outputFinal.json"
        sed '$ s/.$//' ./outputFinal.json >> "./outputFinal2.json"
