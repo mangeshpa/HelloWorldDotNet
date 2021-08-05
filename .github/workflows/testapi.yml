@@ -16,7 +16,7 @@ jobs:
        #sed '$ s/.$//' ./outputFinal.json >> "./outputFinal2.json"
        #sed -i '$ a\'"]" ./outputFinal2.json
 
-       curl https://api.github.com/repos/pulipativedanth/sample-java-project/actions/runs | jq '.workflow_runs[] | { Buildid: .id }' #>> "./output.json"
+       curl http://20.106.158.209:9000/api/measures/component?metricKeys=code_smells,coverage,duplicated_lines_density,vulnerabilities,security_hotspots,critical_violations,bugs&component=sonar_dotnet | jq '.[]' #>> "./output.json"
        #sed  -i '1i [' ./output.json
        #sed 's/}/},/g' ./output.json >> "./outputFinal.json"
        #sed '$ s/.$//' ./outputFinal.json >> "./outputFinal2.json"
