@@ -2,7 +2,7 @@ name: API FOR PULL REQUEST
 
 on:
   push:
-    branches: [ master ]
+    branches: [ patch1 ]
 jobs:
 
   curl:
