@@ -11,5 +11,15 @@ jobs:
 
     - name: API FOR PULL REQUEST 
       run: |
-       curl https://api.github.com/repos/mangeshpa/JestReport/pulls | jq '.[] | {CreatedBy: .user.login, SourceBranch: .head.ref, DestinationBranch: .base.ref, Pull_Request_Number: .number, Repository: .url, Creation_Date: .created_at, Pull_Request_Status: .state, Reviewers: .requested_reviewers[].login, Approvers: .assignee.login}' #>> "./Pullrequests.json"
+       curl https://api.github.com/repos/mangeshpa/JestReport/pulls?state=all | jq '.[] | {CreatedBy: .user.login, SourceBranch: .head.ref, DestinationBranch: .base.ref, Pull_Request_Number: .number, Repository: .url, Creation_Date: .created_at, Pull_Request_Status: .state, Reviewers: .requested_reviewers[].login, Approvers: .assignee.login}' >> "./Pullrequests.json"
+       sed  -i '1i [' ./Pullrequests.json
+       sed 's/}/},/g' ./Pullrequests.json >> "./PullrequestsFinal.json"
+       sed '$ s/.$//' ./PullrequestsFinal.json >> "./Pullrequests_Final.json"
+       sed -i '$ a\'"]" ./Pullrequests_Final.json
 
+    - name: Upload a Test Artifact for Pull Request 
+      uses: actions/upload-artifact@v2.2.4
+      with:
+      # Artifact name
+        name: artifact
+        path: ./Pullrequests_Final.json
