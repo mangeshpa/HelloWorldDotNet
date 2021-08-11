@@ -17,7 +17,7 @@ jobs:
        sed '$ s/.$//' ./PullrequestsFinal.json >> "./Pullrequests_Final.json"
        sed -i '$ a\'"]" ./Pullrequests_Final.json
 
-    - name: Upload a Test Artifact for Pull Request
+    - name: Upload a Test Artifact for Pull Request 
       uses: actions/upload-artifact@v2.2.4
       with:
       # Artifact name
