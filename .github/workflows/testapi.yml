@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - name: API FOR PULL REQUEST
+    - name: API FOR PULL REQUEST 
       run: |
        curl https://api.github.com/repos/mangeshpa/JestReport/pulls | jq '.[] | {CreatedBy: .user.login, SourceBranch: .head.ref, DestinationBranch: .base.ref, Pull_Request_Number: .number, Repository: .url, Creation_Date: .created_at, Pull_Request_Status: .state, Reviewers: .requested_reviewers[].login, Approvers: .assignee.login}' #>> "./Pullrequests.json"
 
