@@ -11,4 +11,5 @@ jobs:
     - name: curl
       run: |              
        #curl -i -u mangeshpa:$Token https://api.github.com/KalpanaAddagada/Javawar/deployments
-       curl -i -H "Authorization: token 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" \https://api.github.com/KalpanaAddagada/Javawar/deployments
+       curl -i -H "Authorization: Token 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" \https://api.github.com/KalpanaAddagada/Javawar/deployments
+       curl -i -u mangeshpa:$Token https://api.github.com/KalpanaAddagada/Javawar/deployments&Token=[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]
