@@ -12,6 +12,6 @@ jobs:
       run: |              
        #curl -i -u mangeshpa:$Token https://api.github.com/KalpanaAddagada/Javawar/deployments
             #-d “{“visibility”:“private”}”
-       #curl -i -H "Authorization:$Token" \https://api.github.com/KalpanaAddagada/Javawar/deployments
+       curl -H "Authorization:$Token" \https://api.github.com/KalpanaAddagada/Javawar/deployments?q=user:mangespa
        #curl -i -u mangeshpa:$Token https://api.github.com/KalpanaAddagada/Javawar/deployments&Token=$Token
-       curl -H “Authorization: token Token” https://api.github.com/KalpanaAddagada/Javawar/deployments?q=user:mangespa
+       #curl -H “Authorization: token Token” https://api.github.com/KalpanaAddagada/Javawar/deployments?q=user:mangespa
