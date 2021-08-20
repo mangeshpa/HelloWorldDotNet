@@ -11,4 +11,4 @@ jobs:
     - name: curl
       run: |              
        curl -H "Authorization:$Token" \https://api.github.com/KalpanaAddagada/Javawar/deployments?q=user:mangeshpa       
-       curl -H “Authorization: token Token” https://api.github.com/KalpanaAddagada/Javawar/deployments?q=user:mangeshpa
+       curl -H “Authorization: token $Token” https://api.github.com/KalpanaAddagada/Javawar/deployments?q=user:mangeshpa
