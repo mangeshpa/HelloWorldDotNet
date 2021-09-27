@@ -17,7 +17,7 @@ jobs:
          id: version
          uses: andstor/file-reader-action@v1.0.0
          with:
-           path: ./version.properties
+           path: './version.properties'
 
        - name: Assign release version from version.properties to Env variable
          run: |
