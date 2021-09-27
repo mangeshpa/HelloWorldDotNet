@@ -17,7 +17,7 @@ jobs:
        - name: Read file
          uses: juliangruber/read-file-action@v1.1.4
          with:
-           path: './version.properties'
+           path: './m.txt'
 
        - name: Assign release version from version.properties to Env variable
          run: |
