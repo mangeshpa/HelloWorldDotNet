@@ -15,7 +15,7 @@ jobs:
        
        - name: Read branch.properties
          id: version
-         uses: juliangruber/read-file-action@v1
+         uses: andstor/file-reader-action@v1.0.0
          with:
            path: ./version.properties
 
