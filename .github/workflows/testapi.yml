@@ -13,7 +13,7 @@ jobs:
       #run: |
        #curl https://api.github.com/repos/mangeshpa/JestReport/pulls?state=all | jq '.[] | {CreatedBy: .user.login, SourceBranch: .head.ref, DestinationBranch: .base.ref, Pull_Request_Number: .number, Repository: .url, Creation_Date: .created_at, Pull_Request_Status: .state, Reviewers: .requested_reviewers[].login, Approvers: .assignee.login}' #>> "./Pullrequests.json"
 
-       - name: Read branch.properties
+       - name: checkout code
          uses: actions/checkout@v2
          
        - name: Read branch.properties
@@ -24,7 +24,7 @@ jobs:
 
        - name: Assign release version from version.properties to Env variable
          run: |
-            echo "${{ steps.HOST }}" >> $GITHUB_ENV          
+            echo "${{ steps.host }}" >> $GITHUB_ENV          
           
        - name: Echo release version from  Env variable
          run: |
