@@ -28,6 +28,6 @@ jobs:
           
        - name: Echo release version from  Env variable
          run: |
-            echo "${{ env.release_version }}"
+            echo "${{ env.test }}"
        
        
